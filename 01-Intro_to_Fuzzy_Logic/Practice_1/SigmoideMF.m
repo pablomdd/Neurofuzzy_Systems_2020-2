@@ -1,5 +1,5 @@
-function [X,Y] = BellF(start, a,b,c, finish, step)
-%**************Bell Continous Membership Fuction*******************
+function [X,Y] = SigmoideMF(start, a,c, finish, step)
+%**************Sigmoide Continous Membership Fuction*******************
 
 %   Bell() returns the universe X and the Y(X) Bell member values
 %   Receives a 'start' and a 'finish' that define de universe
@@ -10,7 +10,7 @@ X = start:step:finish;
 Y = zeros(1,length(X));
 
 for i = 1:length(X)
-    Y(i) = 1 /(1 + (abs((X(i)- c)/a))^(2*b));
+    Y(i) = 1 /(1 + exp(-a*(X(i)-c)));
 end
 
 % plot(X,Y,'.')   
