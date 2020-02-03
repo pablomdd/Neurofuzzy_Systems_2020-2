@@ -14,5 +14,5 @@ for i = 1:length(X)
     Y(i) = exp( -(0.5) * ((X(i) - c)/sigma)^2);
 end
 
-% % plot(X,Y,'.')   
+% plot(X,Y,'.')   
 end

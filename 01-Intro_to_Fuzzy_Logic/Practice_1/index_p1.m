@@ -30,7 +30,7 @@ hold on
 
 subplot(2,3,[4 5 6])
 
-p4 = plot(X1, Y1, 'magenta');
+plot(X1, Y1, 'magenta');
 hold on;
 plot(X2, Y2, 'green');
 hold on;
@@ -43,35 +43,35 @@ legend({'Triangular','Trapezoidal', 'Trapezoidal'}, 'Location','Southwest')
 %For figure 2: Overlap the following MF's
 %   universe: [0 200], step = 0.5
 %   Bell: a = 40, b = 10, c = 0 *purple*
-%   Gaussian: c = 100, sigma = 0 *green*
+%   Gaussian: c = 100, sigma = 25 *green*
 %   Sigmoide: a = 0.1,c = 140 *pink*
 
-[X4,Y4] = BellMF(50, 100, 150,0,200,0.5);
-[X5,Y5] =GaussianMF(0, 0, 45,80,0,200,0.5);
-[X6,Y6] = SigmoideMF(150, 155, 200,200,0,200,0.5);
+[X4,Y4] = BellMF(40, 10, 0,0,200,0.5);
+[X5,Y5] = GaussianMF(100,25,0,200,0.5);
+[X6,Y6] = SigmoideMF(0.1,140,0,200,0.5);
 
 figure(2)
 
-% subplot(2,3,1)
-% p1 = plot(X1, Y1, 'magenta');
-% hold on;
-% 
-% subplot(2,3,2)
-% p2 = plot(X2, Y2, 'green');
-% hold on;
-% 
-% subplot(2,3,3)
-% p3 = plot(X3,Y3, 'cyan');
-% hold on
-% 
-% subplot(2,3,[4 5 6])
-% 
-% p4 = plot(X1, Y1, 'magenta');
-% hold on;
-% plot(X2, Y2, 'green');
-% hold on;
-% plot(X3,Y3, 'cyan')
-% 
-% title('Discrete Membership Functions')
-% legend({'Triangular','Trapezoidal', 'Trapezoidal'}, 'Location','Southwest')
+subplot(2,3,1)
+p4 = plot(X4, Y4, 'magenta');
+hold on;
+
+subplot(2,3,2)
+p5 = plot(X5, Y5, 'green');
+hold on;
+
+subplot(2,3,3)
+p6 = plot(X6,Y6, 'cyan');
+hold on
+
+subplot(2,3,[4 5 6])
+
+plot(X4, Y4, 'magenta');
+hold on;
+plot(X5, Y5, 'green');
+hold on;
+plot(X6,Y6, 'cyan')
+
+title('Continous Membership Functions')
+legend({'Bell','Gaussian', 'Sigmoide'}, 'Location','Southwest')
 

@@ -10,68 +10,70 @@
 %   Trapezoidal: a = 0, b = 0, c = 45, d =  80 *green*
 %   Trapezoidal: a = 150, b = 155, c = 200, d = 200 *pink*
 
-[X1,Y1] = TriangularMF(50, 100, 150,0,200,0.5);
-[X2,Y2] = TrapezoidalMF(0, 0, 45,80,0,200,0.5);
-[X3,Y3] = TrapezoidalMF(150, 155, 200,200,0,200,0.5);
-
-figure(1)
-
-subplot(2,3,1)
-p1 = plot(X1, Y1, 'magenta');
-hold on;
-
-subplot(2,3,2)
-p2 = plot(X2, Y2, 'green');
-hold on;
-
-subplot(2,3,3)
-p3 = plot(X3,Y3, 'cyan');
-hold on
-
-subplot(2,3,[4 5 6])
-
-p4 = plot(X1, Y1, 'magenta');
-hold on;
-plot(X2, Y2, 'green');
-hold on;
-plot(X3,Y3, 'cyan')
-
-title('Discrete Membership Functions')
-legend({'Triangular','Trapezoidal', 'Trapezoidal'}, 'Location','Southwest')
+% [X1,Y1] = TriangularMF(50, 100, 150,0,200,0.5);
+% [X2,Y2] = TrapezoidalMF(0, 0, 45,80,0,200,0.5);
+% [X3,Y3] = TrapezoidalMF(150, 155, 200,200,0,200,0.5);
+% 
+% figure(1)
+% 
+% subplot(2,3,1)
+% p1 = plot(X1, Y1, 'magenta');
+% hold on;
+% 
+% subplot(2,3,2)
+% p2 = plot(X2, Y2, 'green');
+% hold on;
+% 
+% subplot(2,3,3)
+% p3 = plot(X3,Y3, 'cyan');
+% hold on
+% 
+% subplot(2,3,[4 5 6])
+% 
+% plot(X1, Y1, 'magenta');
+% hold on;
+% plot(X2, Y2, 'green');
+% hold on;
+% plot(X3,Y3, 'cyan')
+% 
+% title('Discrete Membership Functions')
+% legend({'Triangular','Trapezoidal', 'Trapezoidal'}, 'Location','Southwest')
 
 
 %For figure 2: Overlap the following MF's
 %   universe: [0 200], step = 0.5
 %   Bell: a = 40, b = 10, c = 0 *purple*
-%   Trapezoidal: a = 0, b = 0, c = 45, d =  80 *green*
-%   Trapezoidal: a = 150, b = 155, c = 200, d = 200 *pink*
+%   Gaussian: c = 100, sigma = 25 *green*
+%   Sigmoide: a = 0.1,c = 140 *pink*
 
-[X1,Y1] = TriangularMF(50, 100, 150,0,200,0.5);
-[X2,Y2] = TrapezoidalMF(0, 0, 45,80,0,200,0.5);
-[X3,Y3] = TrapezoidalMF(150, 155, 200,200,0,200,0.5);
+[X4,Y4] = BellMF(40, 10, 0,0,200,0.5);
+[X5,Y5] = GaussianMF(100,25,0,200,0.5);
+[X6,Y6] = SigmoideMF(0.1,140,0,200,0.5);
 
-figure(1)
+figure(2)
 
 subplot(2,3,1)
-p1 = plot(X1, Y1, 'magenta');
+p4 = plot(X4, Y4, 'magenta');
 hold on;
 
 subplot(2,3,2)
-p2 = plot(X2, Y2, 'green');
+p5 = plot(X5, Y5, 'green');
 hold on;
 
 subplot(2,3,3)
-p3 = plot(X3,Y3, 'cyan');
+p6 = plot(X6,Y6, 'cyan');
 hold on
 
 subplot(2,3,[4 5 6])
 
-p4 = plot(X1, Y1, 'magenta');
-hold on;
-plot(X2, Y2, 'green');
-hold on;
-plot(X3,Y3, 'cyan')
+p4
+p5
+p
+% hold on;
+% plot(X2, Y2, 'green');
+% hold on;
+% plot(X3,Y3, 'cyan')
 
-title('Discrete Membership Functions')
+title('Continous Membership Functions')
 legend({'Triangular','Trapezoidal', 'Trapezoidal'}, 'Location','Southwest')
 
