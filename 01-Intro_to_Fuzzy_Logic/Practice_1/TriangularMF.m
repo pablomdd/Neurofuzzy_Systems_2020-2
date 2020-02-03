@@ -1,4 +1,4 @@
-function [X,Y] = TriangularMF(start, a, b, c, finish, step)
+function [X,Y] = TriangularMF(a, b, c,start,finish, step)
 %*****************TRIANGULAR Membership Fuction***************************
 
 %   Triangular() returns the universe X and the Y(X) triangular member values

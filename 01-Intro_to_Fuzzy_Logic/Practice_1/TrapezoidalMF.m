@@ -1,4 +1,4 @@
-function [X,Y] = TrapezoidalMF(start, a, b, c, d, finish, step)
+function [X,Y] = TrapezoidalMF( a, b, c, d, start, finish, step)
 %**************TRAPEZOIDAL Discrete Membership Fuction*******************
 
 %   Trapezoidal() returns the universe X and the Y(X) Trapezoidal member values
