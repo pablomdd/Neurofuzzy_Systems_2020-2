@@ -1,4 +1,4 @@
-function [X,Y] = BellMF(start, a,b,c, finish, step)
+function [X,Y] = BellMF( a,b,c,start,finish,step)
 %**************Bell Continous Membership Fuction*******************
 
 %   Bell() returns the universe X and the Y(X) Bell member values

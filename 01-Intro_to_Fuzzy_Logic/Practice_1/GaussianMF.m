@@ -1,4 +1,4 @@
-function [X,Y] = GaussianMF(start, c, sigma, finish, step)
+function [X,Y] = GaussianMF( c, sigma,start, finish, step)
 %**************Gaussian Continous Membership Fuction*******************
 
 %   Gaussian() returns the universe X and the Y(X) Gaussian member values

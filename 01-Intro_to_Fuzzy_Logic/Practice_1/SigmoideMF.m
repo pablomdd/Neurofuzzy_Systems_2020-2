@@ -1,4 +1,4 @@
-function [X,Y] = SigmoideMF(start, a,c, finish, step)
+function [X,Y] = SigmoideMF( a,c,start,finish, step)
 %**************Sigmoide Continous Membership Fuction*******************
 
 %   Bell() returns the universe X and the Y(X) Bell member values
