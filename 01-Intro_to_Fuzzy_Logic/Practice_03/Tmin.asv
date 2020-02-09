@@ -1,0 +1,8 @@
+function  D = Tmin(A,B)
+%TMIN Summary of this function goes here
+%   Tmin receives sets A, B and returns the min(A,B)
+
+    D
+
+end
+

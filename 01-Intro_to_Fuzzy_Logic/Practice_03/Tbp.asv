@@ -1,0 +1,27 @@
+function D = Tap(A,B)
+%TAP Summary of this function goes here
+%   Tap receives sets A, B and returns the algebraic product a x b
+
+if (length(A) == length(B))
+   D = zeros(1,length(A))
+   
+   if(B(i) == 1)
+       D(i) = A(i)
+   elseif(A(== 1))
+       D(i) = B(i)
+   else
+       D(i) = 0
+       end
+   
+   
+   for i = 1:length(A)
+    D(i) = A(i) * B(i)
+   end
+else
+    error('A & B are not the same length');
+end
+
+end
+
+
+
