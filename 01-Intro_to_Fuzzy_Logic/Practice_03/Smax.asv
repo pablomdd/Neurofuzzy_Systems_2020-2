@@ -1,8 +1,0 @@
-function D = Smax(A,B)
-%Smax  receives sets A, B and returns the 'a OR b' operation.
-% A and B must be the same length
-
-D = max(A,B);
-
-end
-
