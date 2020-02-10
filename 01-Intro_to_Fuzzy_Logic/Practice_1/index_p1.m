@@ -12,7 +12,7 @@
 
 [X1,Y1] = TriangularMF(50, 100, 150,0,200,0.5);
 [X2,Y2] = TrapezoidalMF(0, 0, 45,80,0,200,0.5);
-[X3,Y3] = TrapezoidalMF(150, 155, 200,200,0,200,0.5);
+[X3,Y3] = TrapezoidalMF(120, 155, 200,200,0,200,0.5);
 
 figure(1)
 
