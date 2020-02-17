@@ -8,14 +8,14 @@ X = 0:0.1:10;
 Y = 0:0.1:10;
 Z = 0:0.1:10;
 
-A1 = zeros(length(X));
-A2 = zeros(length(X));
+A1 = zeros(1,length(X));
+A2 = zeros(1,length(X));
 
-B1 = zeros(length(X));
-B2 = zeros(length(X));
+B1 = zeros(1,length(X));
+B2 = zeros(1,length(X));
 
-C1 = zeros(length(X));
-C2 = zeros(length(X));
+C1 = zeros(1,length(X));
+C2 = zeros(1,length(X));
 
 %Evaluation variables
 evalA = 4.5;
@@ -40,15 +40,15 @@ for i = 1:length(X)
     C2(i) = round(exp(-0.5*((Y(i) - 7.5) / 2 )^2),2);
     
     if (X(i) == evalA)
-        xA = X(i)
-        pA1 = A1(i)
-        pA2 = A2(i)   
+        xA = X(i);
+        pA1 = A1(i);
+        pA2 = A2(i);  
     end
     
     if (X(i) == evalB)
-        xB = X(i)
-        pB1 = B1(i)
-        pB2 = B2(i)
+        xB = X(i);
+        pB1 = B1(i);
+        pB2 = B2(i);
     end
 end
 
@@ -262,8 +262,16 @@ hold off
 
 
 % ----------4. max-min composition to find outlines
-cutline1 = ones(size(X)) * maxC1;
-cutline2 = ones(size(X)) * maxC2;
+% cutline1 = ones(size(X)) * maxC1;
+% cutline2 = ones(size(X)) * maxC2;
+
+cutline1 = min(maxC1,C1);
+cutline2 = min(maxC2,C2);
+
+finalcut = zeros(length(Z));
+
+finalcut = max(cutline1, cutline2);
+defuzz(Z, finalcut, 'centroid')
 
 figure(3)
 title('max(outlineC1,outlineC2)')
@@ -272,13 +280,13 @@ plot(X,C1)
 hold on
 plot(X,C2)
 hold on
-
-plot(X, cutline1,'Linewidth',3)
+plot(X, finalcut,'Linewidth',3)
 hold on
-plot(X, cutline2, 'Linewidth',3)
-hold on
+legend("C1","C2","max(cutline1, cutline2)")
+% plot(X, cutline2, 'Linewidth',3)
+% hold on
 % cutlineM = (maxC2 - maxC1) / (xmaxC2 - xmaxC1)
-plot([xmaxC1 xmaxC2],[maxC1 maxC2],'Linewidth',3)
+% plot([xmaxC1 xmaxC2],[maxC1 maxC2],'Linewidth',3)
 
 
 
