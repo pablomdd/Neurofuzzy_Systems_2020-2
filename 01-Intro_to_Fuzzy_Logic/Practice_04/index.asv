@@ -1,0 +1,41 @@
+%Practice 4
+%-----------PART 1----------
+%   Generate the code such that you ask the user to introduce
+%   values for flag and generator position. Display the final
+%   cutline for speed, final cutline for position and 
+%   defuzzyfied value.
+
+% We define de universes 
+X1 = 0:2:359;
+X2 = -2.25:0.25:7.25;
+X3 = 0:1:100;
+
+% Define the membership function for the generator
+ENgen = TrapezoidalMF(0,0,10,35,0,359,2);
+Ngen = TrapezoidalMF(10,80,100,170,0,359,2);
+Wgen = TrapezoidalMF(100,170,190,260,0,359,2);
+Sgen = TrapezoidalMF(190,260,280,350,0,359,2);
+ESgen = TrapezoidalMF(280,350,359,359,0,359,2);
+
+ENflag = TrapezoidalMF(0,0,10,35,0,359,2);
+Nflag = TrapezoidalMF(10,80,100,170,0,359,2);
+Wflag = TrapezoidalMF(100,170,190,260,0,359,2);
+Sflag = TrapezoidalMF(190,260,280,350,0,359,2);
+ESflag = TrapezoidalMF(280,350,359,359,0,359,2);
+
+Low = TrapezoidalMF(0,0,10,35,0,100,1);
+Med = TrapezoidalMF(15,40,60,85,0,100,1);
+High = TrapezoidalMF(65,90,100,100,0,100,1);
+
+CW = TrapezoidalMF(-2.25, -0.25, 0.25, 2.25,7.25,0.25);
+DM = TrapezoidalMF(2.25,0.25,2.25,2.75,4.75,7.25,0.25);
+ACW = TrapezoidalMF(-2.25,2.75, 4.75, 5.25, 7.25,7.25,0.25);
+
+
+
+
+%-----------PART 2----------
+%   Generate the code to display the 3D plots for the behaviour
+%   of speed and position for all the possible combinations of 
+%   flag and generator position(step: 2 degrees)
+
