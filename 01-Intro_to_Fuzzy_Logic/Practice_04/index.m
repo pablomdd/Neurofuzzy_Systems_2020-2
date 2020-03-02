@@ -43,6 +43,77 @@ Gen = preGen/2;
 
 %   Minimos de ENgen con las posiciones de la bandera 
 
+min1 = min(ENgen(Gen), ENflag(Gen)); %low,dm
+min2 = min(ENgen(Gen), Nflag(Gen));%low,cw
+min3 = min(ENgen(Gen), Wflag(Gen));%high,acw
+min4 = min(ENgen(Gen), Sflag(Gen));%low,acw
+min5 = min(ENgen(Gen), ESflag(Gen));%low, acw
+
+%Minimos de Ngen con las posiciones de la bandera
+
+min6 = min(Ngen(Gen), ENflag(Gen)); %med,acw
+min7 = min(Ngen(Gen), Nflag(Gen)); %low,dm
+min8 = min(Ngen(Gen), Wflag(Gen)); %low,cw
+min9 = min(Ngen(Gen), Sflag(Gen));%high,cw
+min10 = min(Ngen(Gen), ESflag(Gen));%med,acw
+
+%Minimos de Wgen con las posiciones de la bandera
+
+min11 = min(Wgen(Gen), ENflag(Gen));%high,cw
+min12 = min(Wgen(Gen), Nflag(Gen));%low,acw
+min13 = min(Wgen(Gen), Wflag(Gen));%low,dm
+min14 = min(Wgen(Gen), Sflag(Gen));%med,cw
+min15 = min(Wgen(Gen), ESflag(Gen));%high,cw
+
+%Minimos de Sgen con las posiciones de la bandera
+
+min16 = min(Sgen(Gen), ENflag(Gen));%med,cw
+min17 = min(Sgen(Gen), Nflag(Gen));%high,cw
+min18 = min(Sgen(Gen), Wflag(Gen));%med,acw
+min19 = min(Sgen(Gen), Sflag(Gen));%low,dm
+min20 = min(Sgen(Gen), ESflag(Gen));%med,cw
+
+
+%Minimos de Sgen con las posiciones de la bandera
+
+min21 = min(Sgen(Gen), ENflag(Gen));%low,cw
+min22 = min(Sgen(Gen), Nflag(Gen));%med,cw
+min23 = min(Sgen(Gen), Wflag(Gen));%high,acw
+min24 = min(Sgen(Gen), Sflag(Gen));%low,acw
+min25 = min(Sgen(Gen), ESflag(Gen));%low,dm
+
+%Para la velocidad
+V1 = [min1, min2, min4, min5, min7, min8, min12, min13, min19, min20, min24, min25];
+maxlow = max(V1);
+
+V2 = [min6, min10, min14, min16, min18, min20, min22];
+maxmed = max(V2);
+
+V3 = [min3,min9,min11,min15,min17,min23];
+maxhigh = max(V3);
+
+cutlinelow = min(maxlow,Low);
+cutlinemed = min(maxmed,Med);
+cutlinehigh = min(maxhigh,High);
+
+maxc1 = max(cutlinelow, cutlinemed);
+maxc2 = max(cutlinelow, cutlinehigh);
+maxc3 = max(cutlinemed, cutlinehigh);
+
+maxa = max(maxc1, maxc2);
+finalcutlinespeed = max(maxa, maxc3);
+
+subplot(1,2,1)
+speed = defuzz(X3, finalcutlinespeed, 'centroid');
+h1 = line([speed speed],[0 1],'Color','k');
+t1 = text(speed,0.1,' centroid','FontWeight','bold');
+hold on
+plot(X3, finalcutlinespeed,'*',X3,Low,'b',X3,Med,'y',X3,High,'r','Linewidth',1.5)
+legend({'Centroid','Finalcut Speed','Low','Med','High'},'Location','northeast')
+
+
+%   Minimos de ENgen con las posiciones de la posicioin 
+
 min1 = min(ENgen(Gen), ENflag(Flag)); %low,dm
 min2 = min(ENgen(Gen), Nflag(Flag));%low,cw
 min3 = min(ENgen(Gen), Wflag(Flag));%high,acw
@@ -103,7 +174,7 @@ maxc3 = max(cutlinemed, cutlinehigh);
 maxa = max(maxc1, maxc2);
 finalcutlinespeed = max(maxa, maxc3);
 
-subplot(1,2,1)
+subplot(1,2,2)
 speed = defuzz(X3, finalcutlinespeed, 'centroid');
 h1 = line([speed speed],[0 1],'Color','k');
 t1 = text(speed,0.1,' centroid','FontWeight','bold');
@@ -111,8 +182,19 @@ hold on
 plot(X3, finalcutlinespeed,'*',X3,Low,'b',X3,Med,'y',X3,High,'r','Linewidth',1.5)
 legend({'Centroid','Finalcut Speed','Low','Med','High'},'Location','northeast')
 
+
 %-----------PART 2----------
-%   Generate the code to display the 3D plots for the behaviour
+%   Generate the code to display the 3D plots f5or the behaviour
 %   of speed and position for all the possible combinations of 
 %   flag and generator position(step: 2 degrees)
+
+for flag = 1:2:359
+    for generator = 1:2:359
+        
+    end
+end
+
+
+
+
 
