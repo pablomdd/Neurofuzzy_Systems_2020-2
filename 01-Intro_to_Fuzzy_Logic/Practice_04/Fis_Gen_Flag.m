@@ -91,7 +91,7 @@ finalcutlinespeed = max(maxa, maxc3);
 
 figure(1)
 subplot(1,2,1)
-speed = defuzz(X3,finalcutlinespeed, 'centroid');
+speed = defuzz(X3,finalcutlinespeed, 'centroid')
 h1 = line([speed speed],[0 1],'Color','k');
 t1 = text(speed,0.1,' centroid');
 hold on
@@ -119,12 +119,13 @@ maxb = max(maxcc1, maxcc2);
 finalcutlinerotation = max(maxb,maxcc3);
 
 subplot(1,2,2)
-rotation = defuzz(X2, finalcutlinerotation, 'centroid');
+rotation = defuzz(X2, finalcutlinerotation, 'centroid')
 h2 = line([rotation rotation],[0 1],'Color','k');
 t2 = text(rotation,0.1,' centroid');
 hold on
 plot(X2,finalcutlinerotation, '*', X2, CW, 'g', X2, DM, 'y', X2, ACW,'r','Linewidth', 1)
 legend({'Centroid','Finalcut Rotation','CW','DM','ACW'},'Location','northeast')
+
 
 
 %   ----------------------Parte 2 ----------------------
