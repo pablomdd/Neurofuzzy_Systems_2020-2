@@ -10,6 +10,7 @@ figure(1)
 
 %   Minimum product
 subplot(2,2,1)
+ 
 title('Tmin')
 hold on
 plot(X,A,X,B,X,Tmin(A,B),'--')

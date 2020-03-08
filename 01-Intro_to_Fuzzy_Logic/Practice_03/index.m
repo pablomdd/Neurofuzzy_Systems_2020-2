@@ -12,7 +12,7 @@ for i = 1:length(X)
     B(i) = 1 / (1 + ( (X(i)-5)/ 5 )^2);
 end
 
-%------------------------Tnorm Operations -------------------
+%------------------------Tnorm Operations -------------------   
 figure(1)
 
 %   Minimum product
