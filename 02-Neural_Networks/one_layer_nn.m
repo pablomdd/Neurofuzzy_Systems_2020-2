@@ -32,8 +32,8 @@ ax.YAxisLocation = 'origin';
 
 %% 
 
-x2 = -4:0.2:4;
-y2 = -4:0.2:4;
+x2 = -4:0.1:4;
+y2 = -4:0.1:4;
 w = [0.2 0.3];
 b = -0.6;
 
@@ -57,7 +57,7 @@ for i = 1:length(x2)
         hold on
     end
 end
-hold on
+% hold on
 
 % y = -(2/3) * x2 + 2;
 % plot(x2, y, 'r', 'LineWidth',2,'DisplayName','Line Limit')
