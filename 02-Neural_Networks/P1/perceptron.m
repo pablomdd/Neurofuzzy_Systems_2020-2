@@ -1,4 +1,4 @@
-%% 
+%% Perceptron and training
 p1 = [1; 2];
 p2 = [-1; 1];
 p3 = [0; -1];
@@ -40,12 +40,6 @@ figure(2)
 title('Perceptron')
 hold on
 
-% For N1
-% plot(x, y1, 'r', 'LineWidth',2,'DisplayName','Line Limit N1')
-% hold on
-% % For N2
-% plot(x, y2, 'r', 'LineWidth',2,'DisplayName','Line Limit N2')
-
 for i = 1:length(x0)
     for j = 1:length(y0)
         
@@ -86,15 +80,15 @@ hold on
 
 plot(x0, y, 'r', 'LineWidth',2,'DisplayName','Line Limit')
 hold on
-plot(x0, yw, 'm', 'LineWidth',2,'DisplayName','Weight')
+plot(x0, yw, 'b', 'LineWidth',2,'DisplayName','Weight')
 hold on
 legend()
 
-plot(p1(1), p1(2), 'ok', 'LineWidth', 1, 'DisplayName','P1')
+plot(p1(1), p1(2), 'om', 'LineWidth', 1, 'DisplayName','P1')
 hold on
-plot(p2(1), p2(2), 'ok', 'LineWidth', 1, 'DisplayName','P2')
+plot(p2(1), p2(2), 'og', 'LineWidth', 1, 'DisplayName','P2')
 hold on
-plot(p3(1), p3(2), 'ok', 'LineWidth', 1, 'DisplayName','P3')
+plot(p3(1), p3(2), 'om', 'LineWidth', 1, 'DisplayName','P3')
 hold on
 
 grid on
