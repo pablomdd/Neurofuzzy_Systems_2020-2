@@ -16,3 +16,11 @@ Fuzzy Inference System - Mandani
 
 ## Practica 05
 Fuzzy Inference System - Sugeno
+DC Motor Postion Control 
+
+# 02 - Neural Networks
+## Practica 01
+Perceptron One Layer
+
+## Practica 02
+Perceptron Two Layer
