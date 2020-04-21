@@ -8,11 +8,17 @@ e = -20 : step : 20;
 a = 0.9;
 
 %Membership Functions
-NG = sigmf(e, [-0.5*a -10]);
-NP = gbellmf(e, [2.5 a -7.5]);
-C = gbellmf(e, [5 a 0]);
-PP = gbellmf(e, [2.5 a 7.5]);
-PG = sigmf(e, [0.5*a 10]);
+% NG = sigmf(e, [-0.5*a -10]);
+% NP = gbellmf(e, [2.5 a -7.5]);
+% C = gbellmf(e, [5 a 0]);
+% PP = gbellmf(e, [2.5 a 7.5]);
+% PG = sigmf(e, [0.5*a 10]);
+
+NG = SigmoideMF(-0.5*0.9, -10, -20, 20, step);
+NP = BellMF(2.5, 0.9, -7.5, -20, 20, step);
+C = BellMF(5, 0.9, 0, -20, 20, step);
+PP = BellMF(2.5, 0.9, 7.5, -20, 20, step);
+PG = SigmoideMF(0.5*0.9, 10, -20, 20, step);
 
 subplot(2,1,1)
 title('Membership Functions')
