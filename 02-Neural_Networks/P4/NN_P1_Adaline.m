@@ -1,5 +1,6 @@
 %% Adaline 1-Layer
 % ============== In this section we initalize W and b values ==============
+clc, clear all, close all
 % Pattern declaration
 p1 = [1; 2];
 p2 = [-1; 1];

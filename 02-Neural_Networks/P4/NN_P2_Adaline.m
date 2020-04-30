@@ -1,4 +1,5 @@
-%% Perceptron and training
+%% 2-Layer Adaline
+% ============Initialization===========
 clc, clear all, close all
 P = [2 2 -2 -1 -1 -2 2 3;
      2 3 1 2 -1 -2 -3 -3];
@@ -19,9 +20,9 @@ W_new = W_old;
 b_new = b_old;
 
 % Ask input for epochs
-% prompt = 'Ingrese valor para epocas ';
-% epochs = input(prompt);
-epochs = 50;
+prompt = 'Enter integer value for number of epochs: ';
+epochs = input(prompt);
+% epochs = 50;
 
 % Alfa
 alfa = 0.01;
@@ -43,7 +44,7 @@ for i = 1:epochs
     end
 end
 
-figure(4)
+figure(1)
 % Graph for the error
 s = strcat('Error Graph after ', num2str(epochs),' epochs. Alfa = ', num2str(alfa));
 title(s) 
@@ -60,6 +61,29 @@ y0 = -3:0.1:3;
 % We obtain b with the following values of w11, w12, w21, w22
 w = W_new;
 b = b_new;
+
+% ======== Quick fix: moved from next section =============
+%   To obtain the limit line, let's get their line equation 
+% For Limit Line 1
+p1horizontal = - b(1) / w(1,1);
+p1vertical = - b(1) / w(1,2);
+
+m1 = - p1vertical / p1horizontal;
+y1 = m1 * x0 + p1vertical;
+
+mw1 = - 1 / m1;
+yw1 = mw1 * x0;
+
+% For Limit Line 2
+p2horizontal = - b(2) / w(2,1);
+p2vertical = - b(2) / w(2,2);
+
+m2 = - p2vertical / p2horizontal;
+y2 = m2 * x0 + p2vertical;
+
+mw2 = - 1 / m2;
+yw2 = mw2 * x0;
+% ===========================================================
 
 figure(2)
 
@@ -97,29 +121,8 @@ ylim([-3 3])
 
 %% Plotting the Patterns and Limit line
 
-%   To obtain the limit line, let's get their line equation 
-% For Limit Line 1
-p1horizontal = - b(1) / w(1,1);
-p1vertical = - b(1) / w(1,2);
-
-m1 = - p1vertical / p1horizontal;
-y1 = m1 * x0 + p1vertical;
-
-mw1 = - 1 / m1;
-yw1 = mw1 * x0;
-
-% For Limit Line 2
-p2horizontal = - b(2) / w(2,1);
-p2vertical = - b(2) / w(2,2);
-
-m2 = - p2vertical / p2horizontal;
-y2 = m2 * x0 + p2vertical;
-
-mw2 = - 1 / m2;
-yw2 = mw2 * x0;
-
 % Now, we plot the Line Limits and Weights
-figure(1)
+figure(3)
 title('2-Layer Adaline')
 hold on
 
