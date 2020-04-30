@@ -27,7 +27,7 @@ epochs = input(prompt);
 for i = 1:epochs
     for j = 1:n     %n is number of patterns
         a = hardlim(Wnew * P(:,j) + bnew)
-        e(:,j) = T(:,j) - a
+        e(:,j) = T(:,j) - a;
         
         Wnew =  Wnew + e(:,j) * Ptrans(j,:);
         bnew = bnew + e(:,j);
