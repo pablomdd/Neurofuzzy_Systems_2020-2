@@ -26,7 +26,7 @@ epochs = input(prompt);
 % Training Algorithm
 for i = 1:epochs
     for j = 1:n     %n is number of patterns
-        a = hardlim(Wnew * P(:,j) + bnew)
+        a = hardlim(Wnew * P(:,j) + bnew);
         e(:,j) = T(:,j) - a;
         
         Wnew =  Wnew + e(:,j) * Ptrans(j,:);
