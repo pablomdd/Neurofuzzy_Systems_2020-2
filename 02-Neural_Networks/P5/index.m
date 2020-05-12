@@ -182,7 +182,7 @@ pv_ada3 = - b_ada3 / W_ada3(2);
 m_ada3 = - pv_ada3 / ph_ada3;
 y_ada3 = m_ada3 * x0 + pv_ada3;
 
-
+hold on
 subplot(2,2,[1 2])
 s = strcat('Perceptron vs Adaline @', num2str(epochs),' epochs.');
 title(s)
@@ -221,8 +221,8 @@ userP = input(prompt);
 % userP = [2; 3; 5]; %Apple
 s1 = strcat(num2str(userP(1)), ' , ', num2str(userP(2)));
 
-a_per = hardlim(W_per * userP(:,1) + b_per);
-a_ada = purelin(W_ada3 * P(:,j) + b_ada3);
+a_per = hardlim(W_per * userP(:,1) + b_per)
+a_ada = purelin(W_ada3 * userP(:,1) + b_ada3)
  
 figure(2)
 if (a_per == 0) 
