@@ -24,3 +24,12 @@ Perceptron One Layer
 
 ## Practica 02
 Perceptron Two Layer
+
+## Practica 03
+Perceptron 3 Dimensions
+
+## Practica 04
+Adaline introduction: redo previous practices with Adaline
+
+## Practica 05
+Perceptron vs Adaline: Calcutating alpha for Adaline and comparing the Error vs Perceptron.
