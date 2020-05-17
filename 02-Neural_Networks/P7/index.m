@@ -4,6 +4,7 @@
 
 %% First Layer: Classification
 %   Following values were calculated by hand
+%   In total, we have 19 Neurons, i.e., 19 Weights and b's
 W1 = [  1       0;    % W1_1
         -0.1    0.2;
         -0.1    0;
@@ -48,11 +49,12 @@ W1 = [  1       0;    % W1_1
  ];
 
 % P = [5;5];
+% This result is used as input (pattern) into the next layer
 a1 = hardlim(W1 * P + b1);
 
 %% Second Layer: Closing into a figure
 % In this layer we filter the result by geometric figure.
-% As we have 4 figures, we need 4 neurons:
+% As we have 5 figures, we need 5 neurons:
 
 W2 = [
         1   1   1   1   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0;
@@ -70,7 +72,8 @@ b2 = [
         -3.5;
 ];
 
-a2 = hardlim(W2 * a1 + b2)
+% This result is used as input (pattern) into the next layer
+a2 = hardlim(W2 * a1 + b2);
 
 %% Third Layer: (OR Gate) Point is inside a figure?
 % In this layer we paint in one area what points are inbetween any of out
@@ -80,6 +83,8 @@ a2 = hardlim(W2 * a1 + b2)
 W3 = [1   1   1   1   1];
 
 b3 = -0.5;
+% This is our final result. It determines wether a point in the plane
+% belongs to any of the geometrics figures that forms a Happy Face.
 % a3 = hardlim(W3 * a2 + b3);
 %% Testing
 
