@@ -57,7 +57,7 @@ b2_old = rand(N_L2, 1);
 %% Training
 %   Vars for the training
 alpha = 0.1;
-epochs = 50;
+epochs = 500;
 
 W1 = W1_old;
 b1 = b1_old;
@@ -86,7 +86,7 @@ for i = 1 : epochs
     end
 end
 
-% Plotting patterns
+%% Plotting patterns
 figure(1)
 s = strcat('Alpha = ', num2str(alpha), ', Epochs = ', num2str(epochs));
 title(s);
