@@ -18,22 +18,8 @@ end
 
 %% Constants & variables
 % ============= Network Design =============
-% #Patterns = Heart_Patterns + nonHeart_Patterns = 40x2 + 47x2 = 87x2
+% #Patterns = Heart_Patterns + nonHeart_Patterns = 2x40 + 2x47 = 2x87
 P = [P_heart; P_other];
-P_trans = P';
-% #Targets = 1x40 + 1x47 = 1x87
+% #Targets = 40 + 47 =
 T = [T_heart, T_other];
-
-[m, n] = size(P);
-N_L1 = 8;   %Number of neurons First Layer
-N_L2 = 1;   %Number of neurons Second Layer    
-
-% =========== Variables ==============
-% For first layer: 2 neurons
-W1_old = rand(N_L1, m);
-b1_old = rand(N_L1, 1);
-
-% For second layer: 1 neuron
-W2_old = rand(N_L2, N_L1);
-b2_old = rand(N_L2, 1);
 
