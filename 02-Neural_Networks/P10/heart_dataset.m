@@ -1,6 +1,6 @@
-function [heart_pattern, target] =  heart_dataset(target_value)
+function [pattern, target] =  heart_dataset(target_value)
 
-heart_pattern = [
+pattern = [
     0   0;
     2   1;
     4   3;  
@@ -43,7 +43,7 @@ heart_pattern = [
     -5   10;
 ];
 
-target = zeros(1,length(heart_pattern));
-for i = 1:length(heart_pattern)
+target = zeros(1,length(pattern));
+for i = 1:length(pattern)
     target(i) = target_value;
 end

@@ -17,7 +17,7 @@ for i = 1:length(P_other)
 end
 
 %% Constants & variables
-% ============= Network Design =============
+
 % #Patterns = Heart_Patterns + nonHeart_Patterns = 40x2 + 47x2 = 87x2
 P = [P_heart; P_other];
 P = P';
@@ -26,11 +26,17 @@ Ptrans = P';
 T = [T_heart, T_other];
 
 [m, n] = size(P);
+% ============= Network Design =============
+% For this practice we have proposed a Two-Layer NN. 
+% First Layer consists of 8 neurons which we expect to surround the heart
+% area.
+% Second Layer would be our AND gate to determine a point is within the
+% area.
+
 N_L1 = 8;   %Number of neurons First Layer
 N_L2 = 1;   %Number of neurons Second Layer    
 
-% =========== Variables ==============
-% For first layer: 2 neurons
+% For first layer: 8 neurons
 W1_old = rand(N_L1, m);
 b1_old = rand(N_L1, 1);
 
@@ -40,8 +46,8 @@ b2_old = rand(N_L2, 1);
 
 %% Training
 %   Vars for the training
-alpha = 0.001;
-epochs = 15000;
+alpha = 0.000001;
+epochs = 100000;
 
 W1 = W1_old;
 b1 = b1_old;
@@ -77,6 +83,9 @@ x0 = -10:0.5:10;
 y0 = -2:0.5:12;
 
 figure(2)
+s = strcat('Alpha = ', num2str(alpha), ', Epochs = ', num2str(epochs));
+title(s);
+hold on
 for i = 1 : length(x0)
     for j = 1 : length(y0)
         a1 = logsig(W1 * [x0(i) ; y0(j)] + b1);
