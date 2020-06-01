@@ -1,8 +1,5 @@
 function [vector] = matrix2vector(A)
-    reshape(A,1,[]);
-    transpose(A);
-    A.';
-    A(:);
+% Receives a matrix A and turn it into a 1-row vector
     vector = reshape(A.',1,[]);
 end
 

@@ -7,18 +7,32 @@
 
 % ============Initialization===========
 clc, clear all, close all
-% Here we call our patterns and targets available in different files
+% Here we call our patterns available in different files
 for i = 1:6
    fileName = ['pattern_' num2str(i)];
    patternStruct.(fileName) = load([fileName '.txt']);
 end
 
+% Pattern asignation from Struct to Workspace Variable
+% As it is read as a Matrix, we parse it as a vector with matrix2vector()
 P1 = matrix2vector(patternStruct.pattern_1);
 P2 = matrix2vector(patternStruct.pattern_2);
 P3 = matrix2vector(patternStruct.pattern_3);
 P4 = matrix2vector(patternStruct.pattern_4);
 P5 = matrix2vector(patternStruct.pattern_5);
 P6 = matrix2vector(patternStruct.pattern_6);
+
+patternCell = struct2cell(patternStruct);
+
+for i = 1:6
+    subplot(2,3,i)
+    imshow(patternCell{i} ,'InitialMagnification','fit');
+    hold on
+    
+    s = strcat('Pattern: ', num2str(i));
+    title(s);
+    hold on
+end
 
 P = [P1; P2; P3; P4; P5; P6]';
 t = P;
@@ -39,73 +53,48 @@ W = t * pinv(P);
 % % • 40 errors
 % % • 50 errors
 
+% File reading for test patterns
 for i = 1:5
    fileName = ['test_pattern_' num2str(i)];
    testStruct.(fileName) = load([fileName '.txt']);
 end
-T1 = matrix2vector(patternStruct.test_pattern_1);
-T2 = matrix2vector(patternStruct.test_pattern_2);
-T3 = matrix2vector(patternStruct.test_pattern_3);
-T4 = matrix2vector(patternStruct.test_pattern_4);
-T5 = matrix2vector(patternStruct.test_pattern_5);
+% Test patterns asignation to a Workspace variable
+T1 = matrix2vector(testStruct.test_pattern_1);
+T2 = matrix2vector(testStruct.test_pattern_2);
+T3 = matrix2vector(testStruct.test_pattern_3);
+T4 = matrix2vector(testStruct.test_pattern_4);
+T5 = matrix2vector(testStruct.test_pattern_5);
+
+% Testing Array for looping
+T = [T1; T2 ; T3 ; T4; T5];
+% Testing Cell for graphs
+testCell = struct2cell(testStruct);
 
 %% TESTING
-% ===========================================
+% Figure will show a 2x3 plot with the testing for each Test Pattern
 figure(2)
-% R= [E1; E2; E3; E4; E5; E6]
-imshow( patternStruct.test_pattern_1 ,'InitialMagnification','fit');
-hold on
+for i = 1:5
+    subplot(2,3,i)
+    imshow(testCell{i} ,'InitialMagnification','fit');
+    hold on
+    
+%   Testing 
+    a = hardlims(W * T(i,:)');
 
-a1 = hardlims(W*T1)
-
-if a1 == P1'
-    title('Pattern is a ONE')
-elseif a1 == P2'
-    title('Pattern is a TWO') 
-elseif a1 == P3'
-    title('Pattern is a THREE')
-elseif a1 == P4'
-    title('Pattern is a FOUR')
-elseif a1 == P5'
-    title('Pattern is a FIVE')
-elseif a1 == P6'
-    title('Pattern is a SIX')
-else
-    title('Pattern is Other')
+    if a == P1'
+        title('Pattern is ONE')
+    elseif a == P2'
+        title('Pattern is TWO') 
+    elseif a == P3'
+        title('Pattern is THREE')
+    elseif a == P4'
+        title('Pattern is FOUR')
+    elseif a == P5'
+        title('Pattern is FIVE')
+    elseif a == P6'
+        title('Pattern is SIX')
+    else
+        title('Pattern is Other')
+    end
+    hold on
 end
-% 
-% % =======================================
-% figure(3)
-% R2= [E7; E8; E9; E10; E11; E12];
-% imshow( R2 ,'InitialMagnification','fit');
-% hold on
-% 
-% a2 = hardlims(W*T2);
-% 
-% if a2 == P1'
-%     title('Pattern is a Zero')
-% elseif a2 == P2'
-%     title('Pattern is a ONE') 
-% elseif a2 == P3'
-%     title('Pattern is a TWO')
-% else
-%     title('Pattern is Other')
-% end
-% 
-% figure(4)
-% R3= [E13; E14; E15; E16; E17; E18];
-% imshow( R3 ,'InitialMagnification','fit');
-% hold on
-% 
-% a3 = hardlims(W*T3)
-% 
-% if a3 == P1'
-%     title('Pattern is a Zero')
-% elseif a3 == P2'
-%     title('Pattern is a ONE') 
-% elseif a3 == P3'
-%     title('Pattern is a TWO')
-% else
-%     title('Pattern is Other')
-% end
-%     
