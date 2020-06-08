@@ -1,0 +1,84 @@
+% Competitive Neural Networks Exercise
+clc, clear all, close all
+p1 = [-0.1961; 0.9806];
+p2 = [0.1961; 0.9806];
+p3 = [0.9806; 0.1961];
+p4 = [0.9806; -0.1961;];
+p5 = [-0.5812; -0.8137];
+p6 = [-0.8137; -0.5812];
+
+w1 = [0.7071; -0.7071];
+w2 = [0.7071; 0.7071];
+w3 = [-1.0000; 0.0000];
+
+P = [p1 p2 p3 p4 p5 p6];
+W = [w1'; w2'; w3'];
+
+% N_L1 = 8;   %Number of neurons First Layer
+% N_L2 = 1;   %Number of neurons Second Layer    
+% 
+% % For first layer: 8 neurons
+% W1_old = rand(N_L1, m);
+% b1_old = rand(N_L1, 1);
+% 
+% % For second layer: 1 neuron
+% W2_old = rand(N_L2, N_L1);
+% b2_old = rand(N_L2, 1);
+% 
+[m, n] = size(P);
+% N = 1;
+% 
+% % Inilialize W and b with random values
+% W_old = rand(N,m);
+% b_old = rand(N,1);
+
+%% Training
+alpha = 0.2;
+epochs = 10;
+L = zeros(3,1);
+
+for i = 1 : epochs
+    for j = 1 : n
+        D = W - P(:,j)';
+        L(1) = norm(D(1,:));
+        L(2) = norm(D(2,:));
+        L(3) = norm(D(3,:));
+        
+        a = compet(L);
+        
+        W = W + alpha * a .* (P(:,j)' - W);
+    end
+    for k = 1: length(W)
+        plot(W(k,1), W(k,2), 'pm', 'LineWidth',2)
+        hold on
+    end
+end
+%% Plotting
+figure(1)
+s = 'Competitive Neural Networks';
+title(s);
+hold on
+for i = 1 : n/3
+    plot(P(1,i), P(2,i), '*b')
+    hold on
+end
+for i = (n/3 + 1): (2*n/3)
+    plot(P(1,i), P(2,i), '*b')
+    hold on
+end
+for i = (2*n/3 + 1): (n)
+    plot(P(1,i), P(2,i), '*b')
+    hold on
+end
+
+% Plot W
+for i = 1: length(W)
+    plot(W(i,1), W(i,2), 'pm', 'LineWidth',2)
+    hold on
+end
+
+grid on
+xlim([-2 2])
+ylim([-1 1])
+    
+    
