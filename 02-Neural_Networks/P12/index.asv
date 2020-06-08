@@ -30,46 +30,12 @@ w5 = [rand() ; 1.5 + rand()];
 P = [p1 p2 p3 p4 p5];
 W_old = [w1'; w2'; w3'; w4'; w5'];
 [m, n] = size(P);
-%% Original Patterns & Weights
-figure(3)
-s = 'Competitive Neural Networks';
-title(s);
-hold on
-for i = 1 : 10
-    plot(P(1,i), P(2,i), '*b')
-    hold on
-end
-for i = 11: 20
-    plot(P(1,i), P(2,i), '*g')
-    hold on
-end
-for i = 21 : 30
-    plot(P(1,i), P(2,i), '*c')
-    hold on
-end
-for i = 31 : 40
-    plot(P(1,i), P(2,i), '*r')
-    hold on
-end
-for i = 41 : 50
-    plot(P(1,i), P(2,i), '*k')
-    hold on
-end
-plot(W_old(1,1), W_old(1,2), 'pm', 'LineWidth',2)
-hold on
-plot(W_old(2,1), W_old(2,2), 'xm', 'LineWidth',2)
-hold on
-plot(W_old(3,1), W_old(3,2), 'om', 'LineWidth',2)
-hold on
-plot(W_old(4,1), W_old(4,2), '^m', 'LineWidth',2)
-hold on
-plot(W_old(5,1), W_old(5,2), 'dm', 'LineWidth',2)
-hold on
+
 
 %% Training
 W = W_old;
 alpha = 0.2;
-epochs = 15;
+epochs = 5;
 D = zeros(5,2);
 L = zeros(5,1);
 
@@ -87,14 +53,13 @@ for i = 1 : epochs
     plot(W(5,1), W(5,2), 'dm', 'LineWidth',2)
     hold on
     
-%     Training for the pattern 
     for j = 1 : n       
-        a = compet(W * P(:,j));
+        a = compet(W * P(:,j))
         
         W = W + alpha * a .* (P(:,j)' - W);
     end
 end
-% Plotting
+%% Plotting
 
 s = 'Competitive Neural Networks';
 title(s);
@@ -140,13 +105,13 @@ grid on
 xlim([0 3])
 ylim([0 3])
 
-% Testing
+%% Testing
 figure(2)
 X = -5:0.2:5;
 Y = -5:0.2:5;
-s = strcat('Competitive NN:', num2str(epochs), 'epochs.' );
+s = 'Competitive NN: ';
+s = strcat(s, epochs,  )
 title(s);
-hold on
 for i = 1:length(X)
     for j = 1:length(Y)
         p = [X(i);Y(j)];

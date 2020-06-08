@@ -38,15 +38,7 @@ figure(1)
 s = 'Competitive Neural Networks';
 title(s);
 hold on
-for i = 1 : n/3
-    plot(P(1,i), P(2,i), '*b')
-    hold on
-end
-for i = (n/3 + 1): (2*n/3)
-    plot(P(1,i), P(2,i), '*b')
-    hold on
-end
-for i = (2*n/3 + 1): (n)
+for i = 1 : n
     plot(P(1,i), P(2,i), '*b')
     hold on
 end
