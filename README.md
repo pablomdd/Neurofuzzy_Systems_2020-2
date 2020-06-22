@@ -33,3 +33,12 @@ Adaline introduction: redo previous practices with Adaline
 
 ## Practica 05
 Perceptron vs Adaline: Calcutating alpha for Adaline and comparing the Error vs Perceptron.
+
+
+## 🙌 Contribution
+
+> Have a look at [contribution docs](./CONTRIBUTING.md) for how to update any of the document
+
+- Open pull request with improvements
+- Discuss ideas in issues
+- Spread the word
