@@ -1,14 +1,16 @@
-% Practice 10: by Pablo Domínguez Durán 
+% Final Examn by Pablo Domínguez 
+%   Produce an oval.
+
 % ============Initialization===========
 clc, clear all, close all
 % Here we call our patterns and targets available in different files
-[P_heart, T_heart] = heart_dataset(1);
+[P_oval, T_oval] = oval_dataset(1);
 [P_other, T_other] = other_dataset(-1);
 
 % We take a look to the patterns
 figure(1)
-for i = 1:length(P_heart)
-   scatter(P_heart(i,1), P_heart(i,2), 'r') 
+for i = 1:length(P_oval)
+   scatter(P_oval(i,1), P_oval(i,2), 'r') 
     hold on
 end
 for i = 1:length(P_other)
@@ -19,11 +21,11 @@ end
 %% Constants & variables
 
 % #Patterns = Heart_Patterns + nonHeart_Patterns = 40x2 + 47x2 = 87x2
-P = [P_heart; P_other];
+P = [P_oval; P_other];
 P = P';
 Ptrans = P';
 % #Targets = 1x40 + 1x47 = 1x87
-T = [T_heart, T_other];
+T = [T_oval, T_other];
 
 [m, n] = size(P);
 % ============= Network Design =============
@@ -46,8 +48,8 @@ b2_old = rand(N_L2, 1);
 
 %% Training
 %   Vars for the training
-alpha = 0.000001;
-epochs = 100000;
+alpha = 0.001;
+epochs = 25000;
 
 W1 = W1_old;
 b1 = b1_old;
@@ -66,6 +68,8 @@ for i = 1 : epochs
         % Step 2: propagate sensitivities backwards
         s2 = - 2 * 1 * e;  %First derivative of purelin, a2.
         
+%         This function helps us to put together the necessary matrix for
+%         the sensivity s1.
         matrix = make_sensivity_matrix(a1);
         s1 = matrix * W2' * s2;
  
@@ -78,9 +82,9 @@ for i = 1 : epochs
     end
 end
 
-%% Testing
-x0 = -10:0.5:10;
-y0 = -2:0.5:12;
+% Testing
+x0 = -6:0.2:6;
+y0 = -5:0.2:5;
 
 figure(2)
 s = strcat('Alpha = ', num2str(alpha), ', Epochs = ', num2str(epochs));
